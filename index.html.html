@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Đặc Sản Bắc Giang | Tinh Hoa Ẩm Thực Kinh Bắc</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fefcf3;
+            color: #2c3e2d;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: #3a5a40;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+
+        header h1 {
+            color: white;
+            font-size: 3.5rem;
+            text-shadow: 3px 3px 8px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.3rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        /* Navigation */
+        nav {
+            background: #3a5a40;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            border-bottom-color: #f4a261;
+            color: #f4a261;
+        }
+
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 2.5rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: #f4a261;
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Cards Grid */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 35px rgba(58, 90, 64, 0.15);
+        }
+
+        .card-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-content {
+            padding: 25px 20px;
+        }
+
+        .card-content h3 {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: #2c3e2d;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #f4a261;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #3a5a40;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #3a5a40;
+            border: 2px solid #3a5a40;
+        }
+
+        .btn-outline:hover {
+            background: #3a5a40;
+            color: white;
+        }
+
+        .btn:hover {
+            background: #f4a261;
+        }
+
+        /* About Section */
+        .about-bg {
+            background: #e9f5e9;
+            padding: 60px 0;
+            margin: 40px 0;
+            border-radius: 30px;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 250px;
+            height: 300px;
+            background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80') center/cover;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-card {
+            background: white;
+            max-width: 700px;
+            border-radius: 30px;
+            padding: 30px;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px; right: 25px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #888;
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #1e2f23;
+            color: #ddd;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #f4a261;
+        }
+
+        /* Responsive */
+        @media (max-width: 700px) {
+            header h1 { font-size: 2.5rem; }
+            nav ul li { margin: 0 10px; }
+            .section-title { font-size: 2rem; }
+        }
+
+        /* News ticker */
+        .season-highlight {
+            background: #f4a261;
+            color: #1e2f23;
+            padding: 8px;
+            text-align: center;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Thông báo mùa vụ -->
+<div class="season-highlight">
+    <i class="fas fa-leaf"></i> ĐANG MÙA VẢI THIỀU LỤC NGẠN - ĐẶT HÀNG NGAY HÔM NAY <i class="fas fa-leaf"></i>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <h1>Đặc Sản Bắc Giang</h1>
+        <p>Tinh hoa ẩm thực xứ Kinh Bắc</p>
+    </div>
+</header>
+
+<!-- Navigation -->
+<nav>
+    <ul>
+        <li><a href="#home">Trang Chủ</a></li>
+        <li><a href="#specialties">Đặc Sản</a></li>
+        <li><a href="#about">Giới Thiệu</a></li>
+        <li><a href="#recipes">Món Ngon</a></li>
+        <li><a href="#contact">Liên Hệ</a></li>
+    </ul>
+</nav>
+
+<main class="container">
+    <!-- Trang Chủ Intro -->
+    <section id="home">
+        <h2 class="section-title">Chào mừng đến với Bắc Giang</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 30px; font-size: 1.2rem;">
+            Nơi hội tụ những đặc sản trứ danh: vải thiều Lục Ngạn ngọt lịm, gà đồi Yên Thế săn chắc, 
+            mỳ Chũ dẻo thơm và nhiều món quà quê đậm đà bản sắc.
+        </p>
+    </section>
+
+    <!-- Danh mục Đặc Sản -->
+    <section id="specialties">
+        <h2 class="section-title">Đặc Sản Nổi Bật</h2>
+        <div class="grid" id="specialtyGrid"></div>
+    </section>
+
+    <!-- Giới thiệu vùng đất -->
+    <section id="about">
+        <div class="about-bg">
+            <div class="container about-content">
+                <div class="about-text">
+                    <h2 style="font-size: 2.2rem; margin-bottom: 20px;">Bắc Giang - Vùng đất trù phú</h2>
+                    <p style="margin-bottom: 15px;">Nằm ở vùng Đông Bắc, Bắc Giang được thiên nhiên ưu ái với những dãy đồi bát úp, khí hậu ôn hòa, tạo nên những vùng chuyên canh nông sản nổi tiếng.</p>
+                    <p>Đến với Bắc Giang, bạn không chỉ được thưởng thức vải thiều, cam Bố Hạ, na Lục Nam mà còn được đắm mình trong văn hóa ẩm thực độc đáo với gỏi cá mè Hiệp Hòa, xôi trứng kiến của người Tày hay chè kho Mỹ Độ.</p>
+                    <a href="#" class="btn" style="margin-top: 25px;" onclick="alert('Cảm ơn bạn đã quan tâm! Hãy khám phá các đặc sản bên dưới.');"><i class="fas fa-utensils"></i> Khám phá ngay</a>
+                </div>
+                <div class="about-img"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Món ngon từ đặc sản (Recipes) -->
+    <section id="recipes">
+        <h2 class="section-title">Món Ngon Từ Đặc Sản</h2>
+        <div class="grid">
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1562967914-608f82629710?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="card-content">
+                    <span class="tag"><i class="far fa-clock"></i> 45 phút</span>
+                    <h3>Gà đồi nướng muối ớt</h3>
+                    <p>Gà đồi Yên Thế ướp muối ớt Tây Bắc, nướng than hoa vàng ruộm, thịt ngọt đậm đà.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1555939594-58d7cb561ad1?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80');"></div>
+                <div class="card-content">
+                    <span class="tag"><i class="far fa-clock"></i> 20 phút</span>
+                    <h3>Mỳ Chũ xào hải sản</h3>
+                    <p>Sợi mỳ dẻo thơm làm từ gạo bao thai, xào cùng tôm, mực và rau củ tươi ngon.</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80');"></div>
+                <div class="card-content">
+                    <span class="tag"><i class="far fa-clock"></i> 60 phút</span>
+                    <h3>Chè kho Mỹ Độ</h3>
+                    <p>Đậu xanh xay nhuyễn nấu với đường mật, thơm nức, vị ngọt thanh đặc trưng.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact / Liên hệ -->
+    <section id="contact">
+        <h2 class="section-title">Liên Hệ Đặt Hàng</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 30px; background: #f9f9f5; border-radius: 30px; padding: 40px;">
+            <div style="flex:1; min-width:250px;">
+                <h3><i class="fas fa-map-marker-alt" style="color: #3a5a40;"></i> Địa chỉ</h3>
+                <p>Quỳnh Sơn, Yên Dũng, TP. Bắc Giang</p>
+                <h3 style="margin-top: 30px;"><i class="fas fa-phone-alt"></i> Hotline</h3>
+                <p>0867768044 - 088888888</p>
+                <h3 style="margin-top: 30px;"><i class="fas fa-envelope"></i> Email</h3>
+                <p>hhhh336699n@gmail.com</p>
+            </div>
+            <div style="flex:1; min-width:250px;">
+                <h3>Gửi tin nhắn cho chúng tôi</h3>
+                <form onsubmit="alert('Cảm ơn bạn! Chúng tôi sẽ liên hệ sớm nhất.'); return false;">
+                    <input type="text" placeholder="Họ và tên" style="width:100%; padding:12px; margin:10px 0; border:1px solid #ccc; border-radius:30px;" required>
+                    <input type="email" placeholder="Email" style="width:100%; padding:12px; margin:10px 0; border:1px solid #ccc; border-radius:30px;" required>
+                    <textarea placeholder="Lời nhắn..." rows="3" style="width:100%; padding:12px; margin:10px 0; border:1px solid #ccc; border-radius:20px;"></textarea>
+                    <button type="submit" class="btn" style="width:100%;">Gửi liên hệ</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="container">
+        <p><i class="fas fa-heart" style="color: #f4a261;"></i> Đặc sản Bắc Giang - Tinh hoa hội tụ</p>
+        <p style="margin: 15px 0;">&copy; 2025 All rights reserved. Website giới thiệu đặc sản.</p>
+        <div class="contact-info">
+            <i class="fab fa-facebook"></i> /dacsanbacgiang 
+            <i class="fab fa-instagram" style="margin-left: 20px;"></i> @dacsan_bg 
+            <i class="fab fa-tiktok" style="margin-left: 20px;"></i> @dacsanbacgiang
+        </div>
+    </div>
+</footer>
+
+<!-- Modal Chi tiết sản phẩm -->
+<div id="detailModal" class="modal">
+    <div class="modal-card">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle" style="font-size: 2rem;">Vải thiều Lục Ngạn</h2>
+        <img id="modalImg" src="" alt="" class="modal-img">
+        <p id="modalDesc"><strong>Nguồn gốc:</strong> ...</p>
+        <p><strong>Mùa vụ:</strong> Tháng 5 - Tháng 7</p>
+        <p><strong>Cách thưởng thức:</strong> Ăn tươi, làm chè, sấy khô.</p>
+        <button class="btn" onclick="closeModal()">Đóng</button>
+    </div>
+</div>
+
+<script>
+    // Dữ liệu đặc sản
+    const specialties = [
+        {
+            name: "Vải thiều Lục Ngạn",
+            tag: "Trái cây vua",
+            shortDesc: "Cùi dày, hạt nhỏ, vị ngọt thanh, thơm đặc trưng.",
+            image: "https://bcp.cdnchinhphu.vn/334894974524682240/2025/4/24/z43302998591668e8037959e2e796414bfdfbe3e392b59733687414-17454842621131575677872.jpg",
+            longDesc: "Vải thiều Lục Ngạn nổi tiếng khắp cả nước và quốc tế. Khi chín có màu đỏ tươi, cùi trắng trong, dày, ráo nước, vị ngọt sắc. Đây là đặc sản tiến vua một thời.",
+            season: "Tháng 5 - Tháng 7"
+        },
+        {
+            name: "Gà đồi Yên Thế",
+            tag: "Đặc sản thịt",
+            shortDesc: "Thịt săn chắc, da vàng óng, ngọt tự nhiên.",
+            image: "https://bcp.cdnchinhphu.vn/zoom/600_315/Uploaded_VGP/nguyenthikimhue/20121228/yen-thega-470A1.jpg",
+            longDesc: "Gà được nuôi thả tự nhiên trên đồi, ăn ngô, thóc và côn trùng. Thịt gà chắc, không bở, luộc lên da vàng giòn, chấm muối tiêu chanh cực phẩm.",
+            season: "Quanh năm"
+        },
+        {
+            name: "Mỳ Chũ",
+            tag: "Tinh hoa làng nghề",
+            shortDesc: "Sợi mỳ dẻo, làm từ gạo bao thai hồng thượng hạng.",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKJ1LgXPqzi8_xw1LEQq2OusGDgU8xpC_y2w&s",
+            longDesc: "Mỳ Chũ được làm thủ công từ loại gạo đặc sản, tráng mỏng phơi nắng. Sợi mỳ trắng ngà, khi nấu không bị nát, ăn kèm thịt vịt hoặc lòng gà rất hợp.",
+            season: "Quanh năm"
+        },
+        {
+            name: "Cam Bố Hạ",
+            tag: "Trái cây có múi",
+            shortDesc: "Vàng mọng, mọng nước, vị ngọt thanh mát.",
+            image: "https://poliva.vn/wp-content/uploads/2019/07/cam-bo-ha-1-1.jpg",
+            longDesc: "Cam Bố Hạ có múi to, mọng nước, vỏ mỏng. Được trồng nhiều ở xã Bố Hạ, huyện Yên Thế. Đây là giống cam quý hiếm từ thời Pháp thuộc.",
+            season: "Tháng 11 - Tháng 2"
+        },
+        {
+            name: "Bánh đa Thổ Hà",
+            tag: "Đặc sản làng cổ",
+            shortDesc: "Giòn tan, vị bùi của vừng, lạc, dừa.",
+            image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL4NVjztofWMHdQc80Sndv2YosRlftnN0OBw&s",
+            longDesc: "Bánh đa Thổ Hà nổi tiếng với hai loại: bánh đa nem và bánh đa vừng dừa. Bánh được nướng trên than hoa, thơm lừng.",
+            season: "Quanh năm"
+        },
+        {
+            name: "Gỏi cá mè Hiệp Hòa",
+            tag: "Món ăn kỷ lục",
+            shortDesc: "Thịt cá tươi cuốn với lá rừng, chấm chẻo.",
+            image: "https://biolomix.vn/wp-content/uploads/2025/04/220407.jpg",
+            longDesc: "Gỏi cá mè được chế biến cầu kỳ từ cá mè sông Cầu. Thịt cá thái mỏng, cuốn với lá nhội, đinh lăng, khế chua... chấm chẻo đặc biệt.",
+            season: "Quanh năm (ngon nhất mùa thu)"
+        }
+    ];
+
+    const grid = document.getElementById('specialtyGrid');
+
+    function renderCards() {
+        grid.innerHTML = '';
+        specialties.forEach((item, index) => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.setAttribute('data-index', index);
+            card.onclick = function() { openModal(index); };
+            card.innerHTML = `
+                <div class="card-img" style="background-image: url('${item.image}');"></div>
+                <div class="card-content">
+                    <span class="tag">${item.tag}</span>
+                    <h3>${item.name}</h3>
+                    <p>${item.shortDesc}</p>
+                    <span class="btn-outline btn" style="margin-top:10px; padding:5px 20px;">Xem chi tiết</span>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    // Modal functions
+    const modal = document.getElementById('detailModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalImg = document.getElementById('modalImg');
+    const modalDesc = document.getElementById('modalDesc');
+
+    function openModal(index) {
+        const item = specialties[index];
+        modalTitle.textContent = item.name;
+        modalImg.src = item.image;
+        modalImg.alt = item.name;
+        modalDesc.innerHTML = `<strong>Mô tả:</strong> ${item.longDesc}<br><br><strong>Mùa vụ:</strong> ${item.season}`;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    }
+
+    // Smooth scroll for navigation
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if(targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if(target) {
+                window.scrollTo({
+                    top: target.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    renderCards();
+</script>
+</body>
+</html>
